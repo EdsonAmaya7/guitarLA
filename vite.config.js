@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const environment = loadEnv(mode, process.cwd(), '');
 
   console.log('👾 -----------------------------------------------------------👾');
-  console.log('👾 => file: vite.config.js:8 => defineConfig => mode:', mode);
+  console.log('👾 => file: vite.config.js:9 => defineConfig => mode:', mode);
   console.log('👾 -----------------------------------------------------------👾');
 
   console.log('👾 ----------------------------------------------------------👾');
@@ -15,13 +15,13 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: environment.VITE_APP_URL,
+    base: environment.VITE_API_URL,
     server: {
       host: true,
     },
     build: {
-      outDir: path.resolve(environment.VITE_APP_URL || 'dist'),
-      emptyOutDir: 0,
+      outDir: path.resolve(environment.VITE_OUTPUT_DIR  || 'dist'),
+      emptyOutDir: true,
       chunkSizeWarningLimit: 3000,
     },
     resolve: {
